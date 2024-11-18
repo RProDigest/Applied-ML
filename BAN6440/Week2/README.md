@@ -4,6 +4,8 @@
 This project uses synthetic data to demonstrate how to apply a tuned XGBoost Model for effective Inventory Management in the fast-moving consumer goods sector (FMGC). XGboost is tuned using Optuna.
 The project is implemented in a Jupyter Notebook, demonstrating feature engineering, hyperparameter tuning, and model evaluation using synthetic data.
 
+A comparison is made between a Baseline XGBoost Model and an Optuna Tuned XGBoost Model 
+
 
 ## Authors
 
@@ -25,6 +27,8 @@ The project is implemented in a Jupyter Notebook, demonstrating feature engineer
 - Predict the number of Days_to_Stock_out for FMCG products based on various inventory and sales features. This will help Amway to make smarter inventory stock management decisons and minimize stock holding costs
 
 - Optimise model performance using Bayesian hyperparameter tuning with Optuna.
+
+- Compare the baseline XGBoost model with the Optimised Model 
 
 ### Dataset:
 
@@ -86,10 +90,10 @@ Derived features such as Inventory_to_Sales_Ratio and Effective_Demand have been
 Categorical variables are encoded using one-hot encoding.
 
 ### Step 2: Model Training
-Before training the model, the synthetic data is split into training (70%) and testing (30%) sets.
+Before training the model, the synthetic data is split into training (70%) and testing (30%) sets. The baseline model is then trained without using Optuna. The baseline model is evaluated.
 
 
-### Step 3: Hyperparameter Tuning
+### Step 3: Hyperparameter Tuning Using Optuna
 Use Optuna’s Bayesian Optimization to fine-tune the following parameters:
 - Number of estimators (n_estimators)
 - Learning rate (learning_rate)
@@ -98,7 +102,7 @@ Use Optuna’s Bayesian Optimization to fine-tune the following parameters:
 - Column sampling ratio (colsample_bytree)
 - Run 50 trials to minimize the Mean Squared Error (MSE).
 
-### Step 4: Model Evaluation
+### Step 4: Optimised Model Evaluation
 Evaluate the tuned model on the test set using:
 - MSE: Measures prediction error.
 - R²: Explains the variance captured by the model.
@@ -148,16 +152,28 @@ The trained model is saved as final_optuna_tuned_xgboost_model.pkl.
 
 ## Project Results
 
+1. **Baseline XGBoost model**
 
-- Mean Squared Error (MSE): 0.15998
+- **Mean Squared Error (MSE):** 0.3956
+
+The average squared difference between predicted and actual values is not minimal (MSE of 0.3956), showing that the model predicts Days_to_Stock_out with high accuracy.
+
+- **R-squared (R²):** 0.6145
+
+The model explains 61.45% of the variance in the target variable (Days_to_Stock_out). Baseline XGBoost only captures roughly two thirds of the complex non-linear aspects of the dataset. 
+
+- **Summary:** The model is not very effective at predicting Days_to_Stock_out, as only 61% of variance explained.
+
+2. **Optimised XGBoost model**
+- **Mean Squared Error (MSE):** 0.15998
 
 The average squared difference between predicted and actual values is minimal (MSE of 0.15998), showing that the model predicts Days_to_Stock_out with high accuracy.
 
-- R-squared (R²): 0.8442
+- **R-squared (R²):** 0.8442
 
 The model explains 84.42% (a significant proportion) of the variance in the target variable (Days_to_Stock_out). XGBoost effectively captures the complex non-linear aspects of the dataset. 
 
-- Summary: The model effectively predicts Days_to_Stock_out, with over 84% of variance explained.
+- **Summary:** The model effectively predicts Days_to_Stock_out, with over 84% of variance explained.
 ## Future Enhancements
 
 1. Use real-world datasets for more practical insights.
