@@ -1,0 +1,19 @@
+test_create_visualizations (test_clustering3.TestPhraseClustering.test_create_visualizations)
+Test that visualizations save correctly. ... ok
+test_download_with_cli (test_clustering3.TestPhraseClustering.test_download_with_cli)
+Test downloading with AWS CLI. ... ok
+test_error_handling (test_clustering3.TestPhraseClustering.test_error_handling)
+Test error handling in main functions. ... ok
+test_extract_features (test_clustering3.TestPhraseClustering.test_extract_features)
+Test feature extraction. ... ok
+test_load_json_data (test_clustering3.TestPhraseClustering.test_load_json_data)
+Test JSON data loading. ... ok
+test_perform_clustering (test_clustering3.TestPhraseClustering.test_perform_clustering)
+Test clustering functionality. ... ok
+test_process_data (test_clustering3.TestPhraseClustering.test_process_data)
+Test data processing. ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.361s
+
+OK
