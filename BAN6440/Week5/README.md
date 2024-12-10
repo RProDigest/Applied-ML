@@ -36,7 +36,7 @@ Using the Breast Cancer Wisconsin dataset, this project builds and evaluates a d
 **1. Requirements**
 
 - Python 3.12 or later
- Required libraries (in requirements.txt):
+ Required libraries:
 - pandas
 - numpy
 - matplotlib
